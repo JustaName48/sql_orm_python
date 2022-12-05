@@ -18,8 +18,8 @@ from configparser import ConfigParser
 
 def config(section, filename='config.ini'):
     # Read config file
-    parser = ConfigParser()
-    parser.read(filename)
+    parser = ConfigParser() #Permite crear el objeto parser
+    parser.read(filename)   # El objeto parser permite usar metodos para trabajar archivo que se encuentra en la ruta 
 
     # Read section
     config_param = {}

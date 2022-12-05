@@ -19,22 +19,22 @@ import csv
 import sqlite3
 
 import sqlalchemy
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import Column, Integer, String, ForeignKey # Herramientas para crear una tabla
+from sqlalchemy.ext.declarative import declarative_base    # Molde para tablas de bases de datos
+from sqlalchemy.orm import sessionmaker, relationship      # Sirve para poder relaciona dos tablas
 
 # Crear el motor (engine) de la base de datos
 engine = sqlalchemy.create_engine("sqlite:///personas_nacionalidad.db")
 base = declarative_base()
 
-from config import config
+from config import config # Sirve para modificar archivos
 
 # Obtener la path de ejecución actual del script
 script_path = os.path.dirname(os.path.realpath(__file__))
 
-# Obtener los parámetros del archivo de configuración
+# Obtener los parámetros del archivo de configuración (config.ini)
 config_path_name = os.path.join(script_path, 'config.ini')
-dataset = config('dataset', config_path_name)
+dataset = config('dataset', config_path_name) # Se trae info del archivo config.ini
 
 
 class Nacionalidad(base):
